@@ -1,9 +1,9 @@
-import { renderableRender } from "../helpers/renderable_render";
+import { renderableRender } from "../helpers/renderable_render.js";
 
 import type { ReactNode } from "react";
-import type { Renderable } from "../helpers/renderable_render";
+import type { Renderable } from "../helpers/renderable_render.js";
 
-type WrapProps = {
+export type WrapProps = {
   components?: Renderable[];
   children?: ReactNode;
 };

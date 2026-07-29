@@ -1,10 +1,10 @@
 import { createPortal } from "react-dom";
 
-import { renderableRender } from "../helpers/renderable_render";
+import { renderableRender } from "../helpers/renderable_render.js";
 
-import type { Renderable } from "../helpers/renderable_render";
+import type { Renderable } from "../helpers/renderable_render.js";
 
-type PortalProps = {
+export type PortalProps = {
   element?: Element | null;
   children?: Renderable;
 };

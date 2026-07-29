@@ -1,12 +1,19 @@
-export { Guard } from "./components/guard";
-export { Inject } from "./components/inject";
-export { List } from "./components/list";
-export { Portal } from "./components/portal";
-export { Swap } from "./components/swap";
-export { Tag } from "./components/tag";
-export { Wrap } from "./components/wrap";
+export { Guard } from "./components/guard.js";
+export { Inject } from "./components/inject.js";
+export { List } from "./components/list.js";
+export { Portal } from "./components/portal.js";
+export { Swap } from "./components/swap.js";
+export { Tag } from "./components/tag.js";
+export { Wrap } from "./components/wrap.js";
 
-export { renderableRender } from "./helpers/renderable_render";
+export { renderableRender } from "./helpers/renderable_render.js";
 
-export type { Renderable } from "./helpers/renderable_render";
-export type { TagProps } from "./components/tag";
+export type { Renderable } from "./helpers/renderable_render.js";
+
+export type { GuardProps } from "./components/guard.js";
+export type { InjectProps } from "./components/inject.js";
+export type { ListProps } from "./components/list.js";
+export type { PortalProps } from "./components/portal.js";
+export type { SwapBooleanProps } from "./components/swap.js";
+export type { TagProps } from "./components/tag.js";
+export type { WrapProps } from "./components/wrap.js";

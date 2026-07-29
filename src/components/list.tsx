@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-type ListProps<T> = {
+export type ListProps<T> = {
   array?: T[];
   itemExtractor?: ((args: { row: T; index: number }) => ReactNode) | null;
 };

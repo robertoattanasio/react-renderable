@@ -12,12 +12,18 @@
   "type": "module",
   "sideEffects": false,
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "development": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
   },
   "files": [
-    "src"
+    "dist"
   ],
   "scripts": {
+    "build": "rm -rf dist && tsc",
+    "prepare": "npm run build",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
