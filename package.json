@@ -1,0 +1,27 @@
+{
+  "name": "react-renderable",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Declarative render primitives for React, all sharing one Renderable convention.",
+  "license": "MIT",
+  "author": "Roberto Attanasio",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertoattanasio/react-renderable.git"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "files": [
+    "src"
+  ],
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
