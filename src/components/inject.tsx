@@ -12,9 +12,7 @@ export type InjectProps = {
 };
 
 export const Inject = ({ components = [], onTop = false, children }: InjectProps) => {
-  const injected = components.map((component, index) => (
-    <Fragment key={index}>{renderableRender(component)}</Fragment>
-  ));
+  const injected = components.map((component, index) => <Fragment key={index}>{renderableRender(component)}</Fragment>);
 
   return (
     <>

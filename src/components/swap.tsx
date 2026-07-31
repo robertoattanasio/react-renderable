@@ -7,8 +7,7 @@ export type SwapBooleanProps = {
   swapOn?: boolean;
 };
 
-const Boolean = ({ components = [], swapOn = false }: SwapBooleanProps) =>
-  renderableRender(components[swapOn ? 1 : 0]);
+const Boolean = ({ components = [], swapOn = false }: SwapBooleanProps) => renderableRender(components[swapOn ? 1 : 0]);
 
 export const Swap = {
   Boolean,

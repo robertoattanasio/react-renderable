@@ -23,12 +23,12 @@ The rule for which props take a `Renderable`: **anything rendered conditionally*
 
 Renders its children only when the condition is false, with an optional alternative to render in its place. Replaces the ternary chains that nest badly inside JSX.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `guardIf` | `boolean` | `false` | when true, the children are withheld |
-| `thenRender` | `Renderable` | `null` | rendered instead of the children while guarded |
-| `shouldHide` | `boolean` | `false` | while guarded, render nothing at all |
-| `children` | `Renderable` | | rendered while not guarded |
+| prop         | type         | default |                                                |
+| ------------ | ------------ | ------- | ---------------------------------------------- |
+| `guardIf`    | `boolean`    | `false` | when true, the children are withheld           |
+| `thenRender` | `Renderable` | `null`  | rendered instead of the children while guarded |
+| `shouldHide` | `boolean`    | `false` | while guarded, render nothing at all           |
+| `children`   | `Renderable` |         | rendered while not guarded                     |
 
 ```tsx
 <Guard guardIf={!user} thenRender={SignInPrompt}>
@@ -50,10 +50,10 @@ Because `children` is a `Renderable`, the component form defers the work — the
 
 Picks one of two renderables from a boolean. `Swap.Boolean` renders `components[0]` when `swapOn` is false and `components[1]` when it is true.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `components` | `Renderable[]` | `[]` | the two branches, in `[false, true]` order |
-| `swapOn` | `boolean` | `false` | which branch to render |
+| prop         | type           | default |                                            |
+| ------------ | -------------- | ------- | ------------------------------------------ |
+| `components` | `Renderable[]` | `[]`    | the two branches, in `[false, true]` order |
+| `swapOn`     | `boolean`      | `false` | which branch to render                     |
 
 ```tsx
 <Swap.Boolean swapOn={isDark} components={[SunIcon, MoonIcon]} />
@@ -65,10 +65,10 @@ Picks one of two renderables from a boolean. `Swap.Boolean` renders `components[
 
 Nests renderables around children, **outermost first**. Flattens the provider pyramid that every app root grows.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `components` | `Renderable[]` | `[]` | wrappers, outermost first |
-| `children` | `ReactNode` | | what ends up innermost |
+| prop         | type           | default |                           |
+| ------------ | -------------- | ------- | ------------------------- |
+| `components` | `Renderable[]` | `[]`    | wrappers, outermost first |
+| `children`   | `ReactNode`    |         | what ends up innermost    |
 
 ```tsx
 <Wrap components={[StoreProvider, ThemeProvider, RouterProvider]}>
@@ -102,11 +102,11 @@ A wrapper passed as an element has its own children replaced, so `Wrap` always s
 
 Renders a set of renderables before or after the children, without wrapping them. For the siblings a layout drags along — backgrounds, overlays, portals' anchors.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `components` | `Renderable[]` | `[]` | rendered as siblings of the children |
-| `onTop` | `boolean` | `false` | render them before the children instead of after |
-| `children` | `ReactNode` | | |
+| prop         | type           | default |                                                  |
+| ------------ | -------------- | ------- | ------------------------------------------------ |
+| `components` | `Renderable[]` | `[]`    | rendered as siblings of the children             |
+| `onTop`      | `boolean`      | `false` | render them before the children instead of after |
+| `children`   | `ReactNode`    |         |                                                  |
 
 ```tsx
 <Inject components={[Background, Cursor]} onTop>
@@ -118,10 +118,10 @@ Renders a set of renderables before or after the children, without wrapping them
 
 Maps an array to nodes. Renders nothing when the array is empty, so no empty-check wraps the JSX.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `array` | `T[]` | `[]` | the source rows |
-| `itemExtractor` | `({ row, index }) => ReactNode` | `null` | called per row |
+| prop            | type                            | default |                 |
+| --------------- | ------------------------------- | ------- | --------------- |
+| `array`         | `T[]`                           | `[]`    | the source rows |
+| `itemExtractor` | `({ row, index }) => ReactNode` | `null`  | called per row  |
 
 ```tsx
 <List array={jobs} itemExtractor={({ row, index }) => <Job key={index} job={row} />} />
@@ -131,10 +131,10 @@ Maps an array to nodes. Renders nothing when the array is empty, so no empty-che
 
 Renders into another DOM element. Renders nothing when the target is missing, so the usual null check disappears.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `element` | `Element \| null` | `null` | the DOM node to render into |
-| `children` | `Renderable` | | |
+| prop       | type              | default |                             |
+| ---------- | ----------------- | ------- | --------------------------- |
+| `element`  | `Element \| null` | `null`  | the DOM node to render into |
+| `children` | `Renderable`      |         |                             |
 
 ```tsx
 <Portal element={document.querySelector("[data-root]")}>
@@ -146,10 +146,10 @@ Renders into another DOM element. Renders nothing when the target is missing, so
 
 Renders a polymorphic element chosen at runtime, with that element's own props fully typed.
 
-| prop | type | default | |
-| --- | --- | --- | --- |
-| `as` | `ElementType` | `"div"` | the element or component to render |
-| …rest | props of `as` | | typed against the chosen element |
+| prop  | type          | default |                                    |
+| ----- | ------------- | ------- | ---------------------------------- |
+| `as`  | `ElementType` | `"div"` | the element or component to render |
+| …rest | props of `as` |         | typed against the chosen element   |
 
 ```tsx
 <Tag as="section" className="prose">
