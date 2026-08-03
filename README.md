@@ -61,6 +61,37 @@ Picks one of two renderables from a boolean. `Swap.Boolean` renders `components[
 <Swap.Boolean swapOn={isPlaying} components={[<PlayIcon size={16} />, <PauseIcon size={16} />]} />
 ```
 
+## Switch
+
+Picks one branch out of many. Renders the first `Switch.Case` whose `when` is true, and falls back to `Switch.Default` when none match. Use it where `Swap` runs out of room: three or more branches, or conditions that read better as labels than as array positions.
+
+`Switch.Case`
+
+| prop       | type         | default |                              |
+| ---------- | ------------ | ------- | ---------------------------- |
+| `when`     | `boolean`    | `false` | whether this branch is taken |
+| `children` | `Renderable` |         | rendered when `when` is true |
+
+`Switch.Default`
+
+| prop       | type         | default |                                 |
+| ---------- | ------------ | ------- | ------------------------------- |
+| `children` | `Renderable` |         | rendered when no case matches |
+
+```tsx
+<Switch>
+  <Switch.Case when={status === "loading"}>
+    <Spinner />
+  </Switch.Case>
+  <Switch.Case when={status === "error"}>{ErrorPanel}</Switch.Case>
+  <Switch.Default>
+    <Results rows={rows} />
+  </Switch.Default>
+</Switch>
+```
+
+Cases are read in order, so the first match wins. Only direct children count: wrapping a case in a fragment or another element hides it from the switch.
+
 ## Wrap
 
 Nests renderables around children, **outermost first**. Flattens the provider pyramid that every app root grows.
