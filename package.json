@@ -38,15 +38,17 @@
   "workspaces": [
     "."
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "ts:check": "tsc --noEmit"
+    "ts:check": "tsc --noEmit",
+    "build": "rm -rf dist && tsc",
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-  },
-  "engines": {
-    "node": ">=18"
   },
   "devDependencies": {
     "@changesets/cli": "^2.31.1"
