@@ -43,8 +43,7 @@
   },
   "scripts": {
     "ts:check": "tsc --noEmit",
-    "build": "rm -rf dist && tsc",
-    "prepublishOnly": "npm run build"
+    "build": "rm -rf dist && tsc"
   },
   "peerDependencies": {
     "react": "^19.0.0",
