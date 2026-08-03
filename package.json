@@ -12,23 +12,7 @@
   ],
   "license": "MIT",
   "author": "Roberto Attanasio",
-  "homepage": "https://github.com/robertoattanasio/react-renderable#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/robertoattanasio/react-renderable.git"
-  },
-  "bugs": {
-    "url": "https://github.com/robertoattanasio/react-renderable/issues"
-  },
   "type": "module",
-  "sideEffects": false,
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "development": "./src/index.ts",
-      "default": "./dist/index.js"
-    }
-  },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
@@ -38,6 +22,14 @@
   "workspaces": [
     "."
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "development": "./src/index.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
   "engines": {
     "node": ">=18"
   },
