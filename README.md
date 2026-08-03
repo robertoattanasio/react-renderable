@@ -151,7 +151,7 @@ Maps an array to nodes. Renders nothing when the array is empty, so no empty-che
 
 | prop            | type                            | default |                 |
 | --------------- | ------------------------------- | ------- | --------------- |
-| `array`         | `T[]`                           | `[]`    | the source rows |
+| `array`         | `readonly T[]`                  | `[]`    | the source rows |
 | `itemExtractor` | `({ row, index }) => ReactNode` | `null`  | called per row  |
 
 ```tsx
