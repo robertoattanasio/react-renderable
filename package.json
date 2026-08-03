@@ -1,13 +1,24 @@
 {
   "name": "react-renderable",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
   "description": "Declarative render primitives for React, all sharing one Renderable convention.",
+  "keywords": [
+    "react",
+    "renderable",
+    "components",
+    "conditional-rendering",
+    "portal",
+    "typescript"
+  ],
   "license": "MIT",
   "author": "Roberto Attanasio",
+  "homepage": "https://github.com/robertoattanasio/react-renderable#readme",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertoattanasio/react-renderable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robertoattanasio/react-renderable/issues"
   },
   "type": "module",
   "sideEffects": false,
@@ -18,16 +29,26 @@
       "default": "./dist/index.js"
     }
   },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "scripts": {
     "build": "rm -rf dist && tsc",
     "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
