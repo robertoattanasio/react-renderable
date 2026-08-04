@@ -1,6 +1,6 @@
 {
   "name": "react-renderable",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Declarative render primitives for React, all sharing one Renderable convention.",
   "keywords": [
     "react",
@@ -35,7 +35,10 @@
   },
   "scripts": {
     "ts:check": "tsc --noEmit",
-    "build": "rm -rf dist && tsc"
+    "build": "rm -rf dist && tsc",
+    "changeset:add": "changeset",
+    "changeset:bump": "changeset version",
+    "build:release": "npm run ts:check && npm run build && npm pack && changeset publish && git push --follow-tags"
   },
   "peerDependencies": {
     "react": "^19.0.0",
