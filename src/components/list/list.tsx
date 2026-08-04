@@ -1,9 +1,4 @@
-import type { ReactNode } from "react";
-
-export type ListProps<T> = {
-  array?: readonly T[];
-  itemExtractor?: ((args: { row: T; index: number }) => ReactNode) | null;
-};
+import { ListProps } from "./type";
 
 export const List = <T,>({ array = [], itemExtractor = null }: ListProps<T>) => {
   if (!array.length || !itemExtractor) return null;

@@ -1,22 +1,11 @@
 import { Children, isValidElement } from "react";
 
-import { renderableRender } from "../helpers/renderable_render.js";
+import { renderableRender } from "../../utils/renderable/renderable.js";
 
 import type { ReactElement, ReactNode } from "react";
-import type { Renderable } from "../helpers/renderable_render.js";
 
-export type SwitchCaseProps = {
-  when?: boolean;
-  children?: Renderable;
-};
-
-export type SwitchDefaultProps = {
-  children?: Renderable;
-};
-
-export type SwitchProps = {
-  children?: ReactNode;
-};
+import { Renderable } from "../../utils/renderable/type.js";
+import { SwitchCaseProps, SwitchDefaultProps, SwitchProps } from "./type.js";
 
 const Case = (_props: SwitchCaseProps): ReactNode => null;
 const Default = (_props: SwitchDefaultProps): ReactNode => null;
