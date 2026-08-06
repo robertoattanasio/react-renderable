@@ -1,5 +1,11 @@
 # react-renderable
 
+## 1.0.5
+
+### Patch Changes
+
+- a1b8ebf: Package refactor
+
 ## 1.0.4
 
 ### Patch Changes
