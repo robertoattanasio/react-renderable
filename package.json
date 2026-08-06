@@ -12,6 +12,15 @@
   ],
   "license": "MIT",
   "author": "Roberto Attanasio",
+  "homepage": "https://dev.robertoattanasio.com/react-renderable",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertoattanasio/dev.robertoattanasio.com.git",
+    "directory": "lib/react-renderable"
+  },
+  "bugs": {
+    "url": "https://github.com/robertoattanasio/dev.robertoattanasio.com/issues"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
