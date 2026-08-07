@@ -1,5 +1,11 @@
 # react-renderable
 
+## 1.0.6
+
+### Patch Changes
+
+- a50595a: Point `repository` and `bugs` at this package's own repository instead of the documentation site, and link the npm package from the README.
+
 ## 1.0.5
 
 ### Patch Changes
