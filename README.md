@@ -2,6 +2,8 @@
 
 Declarative render primitives for React. Every primitive shares one convention, so learning one teaches you all of them.
 
+Package: [npmjs.com/package/react-renderable](https://www.npmjs.com/package/react-renderable)
+
 Documentation: [dev.robertoattanasio.com/react-renderable](https://dev.robertoattanasio.com/react-renderable)
 
 ## Install

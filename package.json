@@ -15,11 +15,10 @@
   "homepage": "https://dev.robertoattanasio.com/react-renderable",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/robertoattanasio/dev.robertoattanasio.com.git",
-    "directory": "lib/react-renderable"
+    "url": "git+https://github.com/robertoattanasio/react-renderable.git"
   },
   "bugs": {
-    "url": "https://github.com/robertoattanasio/dev.robertoattanasio.com/issues"
+    "url": "https://github.com/robertoattanasio/react-renderable/issues"
   },
   "type": "module",
   "main": "./dist/index.js",
