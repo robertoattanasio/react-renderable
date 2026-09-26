@@ -1,5 +1,5 @@
 import { renderableRender } from "../../utils/renderable/renderable.js";
-import { SwapBooleanProps } from "./type.js";
+import type { SwapBooleanProps } from "./type.js";
 
 const Boolean = ({ components = [], swapOn = false }: SwapBooleanProps) => renderableRender(components[swapOn ? 1 : 0]);
 

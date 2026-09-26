@@ -4,8 +4,8 @@ import { renderableRender } from "../../utils/renderable/renderable.js";
 
 import type { ReactElement, ReactNode } from "react";
 
-import { Renderable } from "../../utils/renderable/type.js";
-import { SwitchCaseProps, SwitchDefaultProps, SwitchProps } from "./type.js";
+import type { Renderable } from "../../utils/renderable/type.js";
+import type { SwitchCaseProps, SwitchDefaultProps, SwitchProps } from "./type.js";
 
 const Case = (_props: SwitchCaseProps): ReactNode => null;
 const Default = (_props: SwitchDefaultProps): ReactNode => null;

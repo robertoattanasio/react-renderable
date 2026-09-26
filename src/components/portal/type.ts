@@ -1,4 +1,4 @@
-import { Renderable } from "../../utils/renderable/type";
+import type { Renderable } from "../../utils/renderable/type.js";
 
 export type PortalProps = {
   element?: Element | null;

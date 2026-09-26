@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { Renderable } from "../../utils/renderable/type";
+import type { Renderable } from "../../utils/renderable/type.js";
 
 export type InjectProps = {
   components?: Renderable[];

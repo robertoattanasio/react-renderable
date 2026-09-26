@@ -1,5 +1,7 @@
-import { createElement, ElementType } from "react";
-import { TagProps } from "./type";
+import { createElement } from "react";
+
+import type { ElementType } from "react";
+import type { TagProps } from "./type.js";
 
 export const Tag = <T extends ElementType = "div">({ as, children, ...rest }: TagProps<T>) => {
   const Component = as ?? "div";

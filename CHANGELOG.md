@@ -1,5 +1,12 @@
 # react-renderable
 
+## 1.0.7
+
+### Patch Changes
+
+- `Guard` renders `thenRender` for any value other than `null` or `undefined`, so `thenRender={0}` renders `0`. `shouldHide` still wins over `thenRender`.
+- Relative imports use the `.js` extension and types are imported with `import type`.
+
 ## 1.0.6
 
 ### Patch Changes

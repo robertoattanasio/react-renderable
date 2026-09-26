@@ -1,7 +1,7 @@
 import { cloneElement, createElement, isValidElement } from "react";
 
 import type { ReactNode } from "react";
-import { Renderable } from "./type";
+import type { Renderable } from "./type.js";
 
 export const renderableRender = (renderable: Renderable, children?: ReactNode): ReactNode => {
   if (typeof renderable === "function") return createElement(renderable, null, children);
