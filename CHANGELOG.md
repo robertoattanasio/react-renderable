@@ -1,5 +1,12 @@
 # react-renderable
 
+## 1.0.8
+
+### Patch Changes
+
+- ea1cd86: Mark `Portal` as a client component with `"use client"`. Server Components can now import from `react-renderable` without loading `createPortal`, which the server build of `react-dom` doesn't export.
+- ea1cd86: Remove the `development` condition from `exports`. Bundlers in development mode received the TypeScript source instead of the compiled build; every environment now resolves `dist`.
+
 ## 1.0.7
 
 ### Patch Changes
