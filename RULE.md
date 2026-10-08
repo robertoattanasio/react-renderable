@@ -37,6 +37,7 @@ Props read as a sentence at the call site: `guardIf`, `thenRender`, `shouldHide`
 ## Rendering
 
 - Primitives add nothing to the tree: no wrapper element, no context, no state.
+- Primitives work as Server Components. `Portal` is the only exception, marked `"use client"` because `createPortal` only exists in the browser.
 - Slots are rendered through `renderableRender`. Its second argument, `children`, is only passed by wrappers.
 
 ## Types
