@@ -1,43 +1,37 @@
 # react-renderable
 
-Declarative render primitives for React. Every primitive shares one convention, so learning one teaches you all of them.
+`react-renderable` is a small set of primitives for deciding what to render in React. Each one accepts a `Renderable`, which can be either a component or a React node, so you can use the same slot with both.
 
 Package: [npmjs.com/package/react-renderable](https://www.npmjs.com/package/react-renderable)
 
 Documentation: [dev.robertoattanasio.com/react-renderable](https://dev.robertoattanasio.com/react-renderable)
 
-## Install
+## Installation
 
 ```sh
 npm install react-renderable
 ```
 
-## What you get
+The package expects React 19 and React DOM 19 in your project; both are peer dependencies.
 
-`Guard`, `Swap`, `Switch` for branching. `Wrap`, `Inject` for composition. `List`, `Portal`, `Tag` for rendering. Plus `renderableRender`, the resolver behind them, so you can build your own primitives in the same convention.
+## API
 
-```tsx
-<Switch>
-  <Switch.Case when={isLoading}>{Spinner}</Switch.Case>
-  <Switch.Case when={!!error}>{() => <ErrorPanel error={error!} />}</Switch.Case>
-  <Switch.Default>{() => <Results rows={rows} />}</Switch.Default>
-</Switch>
-```
+The primitives cover common rendering patterns, including conditional content, lists, wrappers, and portals. See the individual guides for details:
 
-## Built with
+- [Renderable](./docs/renderable.md)
+- [Guard](./docs/guard.md)
+- [Switch](./docs/switch.md)
+- [Swap](./docs/swap.md)
+- [List](./docs/list.md)
+- [Wrap](./docs/wrap.md)
+- [Inject](./docs/inject.md)
+- [Portal](./docs/portal.md)
+- [Tag](./docs/tag.md)
 
-React 19 and TypeScript, nothing else: no dependencies, no runtime beyond React itself. Published as compiled ESM with type declarations, and side-effect free.
+## Scripts
 
-## Approach
-
-- **One convention.** Every slot accepts both a component and its element, told apart by `typeof === "function"` — no heuristics.
-- **Deferred by default.** The component form is not evaluated until it renders, so a branch that is not taken costs nothing and code that would crash outside its branch never runs.
-- **Nothing added to the tree.** Primitives render their branch and nothing around it: no wrapper, no context, no provider.
-- **Empty is a state, not a bug.** Every prop is optional; a missing target, an empty array or absent children render nothing instead of throwing.
-- **Stateless.** No state, no effects, no refs — the work happens during render.
-
-Conventions for contributing: [RULE.md](./RULE.md).
+For the available project scripts and what they do, see [docs/scripts.md](./docs/scripts.md).
 
 ## License
 
-[MIT](./LICENSE).
+[MIT](./LICENSE)
