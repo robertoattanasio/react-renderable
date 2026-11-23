@@ -1,6 +1,6 @@
-import type { Renderable } from "../../utils/renderable/type.js";
+import type { ReactNode } from "react";
 
 export type PortalProps = {
-  element?: Element | null;
-  children?: Renderable;
+  to: Element | null;
+  children?: ReactNode;
 };

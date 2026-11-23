@@ -1,32 +1,33 @@
-# Guard
+# r.guard
 
-Renders its children, unless a condition holds: then it renders something else, or nothing.
+A guard: renders its children, unless `when` holds. Then it renders `then`, to hide them or redirect, or nothing.
 
 ```ts
-Guard(props: GuardProps): ReactNode
+r.guard(props: GuardProps): ReactNode
 ```
 
-| Prop         | Type         | Default |                                            |
-| ------------ | ------------ | ------- | ------------------------------------------ |
-| `guardIf`    | `boolean`    | `false` | when `true`, the children are not rendered |
-| `thenRender` | `Renderable` | `null`  | what to render instead                     |
-| `shouldHide` | `boolean`    | `false` | when `true`, render nothing instead        |
-| `children`   | `Renderable` |         | what to render while `guardIf` is `false`  |
+| Prop       | Type           | Required | Default |                                                 |
+| ---------- | -------------- | -------- | ------- | ----------------------------------------------- |
+| `when`     | `unknown`      | yes      |         | when truthy, the children are not rendered      |
+| `then`     | `ReactNode`    |          | `null`  | what to render in their place                   |
+| `within`   | `ReactElement` |          |         | see [within and key](./slots.md#within-and-key) |
+| `children` | `ReactNode`    |          |         |                                                 |
 
 ## Behavior
 
-| `guardIf` | `shouldHide` | Renders      |
-| --------- | ------------ | ------------ |
-| `false`   | any          | `children`   |
-| `true`    | `false`      | `thenRender` |
-| `true`    | `true`       | nothing      |
+| `when` | Renders                       |
+| ------ | ----------------------------- |
+| falsy  | `children`                    |
+| truthy | `then`, or nothing without it |
 
-Without `thenRender`, a guarded `Guard` renders nothing.
+- The branches are keyed `"children"` and `"then"`, unless they already have a key.
+
+> Children are evaluated right away. Content that reads a value the primitive checks (`user.name` when `user` can be `null`, `state.data` in a case) belongs in a component that reads it itself. See [Slots](./slots.md#evaluation).
 
 ## Example
 
 ```tsx
-<Guard guardIf={!user} thenRender={<Login />}>
-  <Dashboard user={user} />
-</Guard>
+<r.guard when={!user} then={<Redirect to="/login" />}>
+  <Dashboard />
+</r.guard>
 ```

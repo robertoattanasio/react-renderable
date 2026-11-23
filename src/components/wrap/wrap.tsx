@@ -1,9 +1,10 @@
+import { elementWithChildren } from "../../utils/element/element.js";
+
 import type { ReactNode } from "react";
-import { renderableRender } from "../../utils/renderable/renderable.js";
 import type { WrapProps } from "./type.js";
 
-export const Wrap = ({ components = [], children }: WrapProps) =>
-  components.reduceRight<ReactNode>(
-    (wrappedChildren, component) => renderableRender(component, wrappedChildren),
-    children,
-  );
+export const Wrap = ({ with: wrappers, when = true, children = null }: WrapProps) => {
+  if (!when) return children;
+
+  return wrappers.reduceRight<ReactNode>((inner, wrapper) => elementWithChildren(wrapper, inner), children);
+};

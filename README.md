@@ -1,10 +1,10 @@
 # react-renderable
 
-`react-renderable` is a small set of primitives for deciding what to render in React. Each one accepts a `Renderable`, which can be either a component or a React node, so you can use the same slot with both.
+`react-renderable` is a small set of primitives for deciding what to render in React: conditions, cases, lists and wrappers, written as components in the tree. They take plain JSX, add no wrapper nodes and work as Server Components.
 
 Package: [npmjs.com/package/react-renderable](https://www.npmjs.com/package/react-renderable)
 
-Documentation: [dev.robertoattanasio.com/react-renderable](https://dev.robertoattanasio.com/react-renderable)
+Documentation: [react-renderable.robertoattanasio.com](https://react-renderable.robertoattanasio.com)
 
 ## Installation
 
@@ -12,21 +12,37 @@ Documentation: [dev.robertoattanasio.com/react-renderable](https://dev.robertoat
 npm install react-renderable
 ```
 
-The package expects React 19 and React DOM 19 in your project; both are peer dependencies.
+The package expects React 19 and React DOM 19 in your project; both are peer dependencies. The types need TypeScript 5.7 or newer.
+
+## Usage
+
+Every primitive lives on `r`:
+
+```tsx
+import { r } from "react-renderable";
+
+<r.show when={projects.length} fallback={<Empty />}>
+  <ul>
+    <r.each items={projects} map={(project) => <li key={project.id}>{project.title}</li>} />
+  </ul>
+</r.show>;
+```
 
 ## API
 
-The primitives cover common rendering patterns, including conditional content, lists, wrappers, and portals. See the individual guides for details:
+- [Slots](./docs/slots.md): elements, `map`, `within` and keys, evaluation
+- [r.guard](./docs/guard.md)
+- [r.show](./docs/show.md)
+- [r.switch](./docs/switch.md)
+- [r.each](./docs/each.md)
+- [r.repeat](./docs/repeat.md)
+- [r.join](./docs/join.md)
+- [r.wrap](./docs/wrap.md)
+- [r.inject](./docs/inject.md)
+- [r.portal](./docs/portal.md)
+- [r.tag](./docs/tag.md)
 
-- [Renderable](./docs/renderable.md)
-- [Guard](./docs/guard.md)
-- [Switch](./docs/switch.md)
-- [Swap](./docs/swap.md)
-- [List](./docs/list.md)
-- [Wrap](./docs/wrap.md)
-- [Inject](./docs/inject.md)
-- [Portal](./docs/portal.md)
-- [Tag](./docs/tag.md)
+Upgrading from 1.x: see the migration table in [CHANGELOG.md](./CHANGELOG.md).
 
 ## Scripts
 

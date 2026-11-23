@@ -1,7 +1,7 @@
-import type { ReactNode } from "react";
-import type { Renderable } from "../../utils/renderable/type.js";
+import type { ReactElement, ReactNode } from "react";
 
 export type WrapProps = {
-  components?: Renderable[];
+  with: readonly ReactElement[];
+  when?: unknown;
   children?: ReactNode;
 };

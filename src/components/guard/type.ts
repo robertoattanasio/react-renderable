@@ -1,8 +1,8 @@
-import type { Renderable } from "../../utils/renderable/type.js";
+import type { ReactElement, ReactNode } from "react";
 
 export type GuardProps = {
-  guardIf?: boolean;
-  thenRender?: Renderable;
-  shouldHide?: boolean;
-  children?: Renderable;
+  when: unknown;
+  then?: ReactNode;
+  within?: ReactElement;
+  children?: ReactNode;
 };

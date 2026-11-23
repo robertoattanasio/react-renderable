@@ -1,18 +1,20 @@
 {
   "name": "react-renderable",
-  "version": "1.0.8",
-  "description": "Declarative render primitives for React, all sharing one Renderable convention.",
+  "version": "2.0.0",
+  "description": "Declarative render primitives for React: conditions, cases, lists and wrappers in plain JSX, under one r namespace.",
   "keywords": [
     "react",
     "renderable",
-    "components",
+    "declarative",
+    "jsx",
     "conditional-rendering",
+    "server-components",
     "portal",
     "typescript"
   ],
   "license": "MIT",
   "author": "Roberto Attanasio",
-  "homepage": "https://dev.robertoattanasio.com/react-renderable",
+  "homepage": "https://react-renderable.robertoattanasio.com",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/robertoattanasio/react-renderable.git"

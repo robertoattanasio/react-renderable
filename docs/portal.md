@@ -1,21 +1,21 @@
-# Portal
+# r.portal
 
 Renders its children into another DOM element.
 
 ```ts
-Portal(props: PortalProps): ReactNode
+r.portal(props: PortalProps): ReactNode
 ```
 
-| Prop       | Type              | Default |                      |
-| ---------- | ----------------- | ------- | -------------------- |
-| `element`  | `Element \| null` | `null`  | where to render      |
-| `children` | `Renderable`      |         | what to render there |
+| Prop       | Type              | Required |                      |
+| ---------- | ----------------- | -------- | -------------------- |
+| `to`       | `Element \| null` | yes      | where to render      |
+| `children` | `ReactNode`       |          | what to render there |
 
 ## Behavior
 
-- Without `element`, it renders nothing.
+- With `to` set to `null` it renders nothing, as during server rendering.
 - It's the only client component of the package (`"use client"`): `createPortal` doesn't exist on the server.
-- The element has to exist when `Portal` renders: read it in an effect or a ref callback, then pass it.
+- The element has to exist when `r.portal` renders: read it in an effect or a ref callback, then pass it.
 
 ## Example
 
@@ -24,7 +24,7 @@ const [target, setTarget] = useState<Element | null>(null);
 
 useEffect(() => setTarget(document.body), []);
 
-<Portal element={target}>
+<r.portal to={target}>
   <Modal />
-</Portal>;
+</r.portal>;
 ```

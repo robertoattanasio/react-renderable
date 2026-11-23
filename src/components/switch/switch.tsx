@@ -1,32 +1,32 @@
-import { Children, isValidElement } from "react";
+import { isValidElement } from "react";
 
-import { renderableRender } from "../../utils/renderable/renderable.js";
+import { elementFlatten, elementWithChildren, elementWithKey } from "../../utils/element/element.js";
 
 import type { ReactElement, ReactNode } from "react";
-
-import type { Renderable } from "../../utils/renderable/type.js";
 import type { SwitchCaseProps, SwitchDefaultProps, SwitchProps } from "./type.js";
 
-const Case = (_props: SwitchCaseProps): ReactNode => null;
-const Default = (_props: SwitchDefaultProps): ReactNode => null;
+const SwitchCase = (_props: SwitchCaseProps): ReactNode => null;
+const SwitchDefault = (_props: SwitchDefaultProps): ReactNode => null;
 
 const isElementOf = <P,>(node: ReactNode, marker: (props: P) => ReactNode): node is ReactElement<P> =>
   isValidElement(node) && node.type === marker;
 
-const SwitchRoot = ({ children }: SwitchProps): ReactNode => {
-  let fallback: Renderable = undefined;
+const switchContent = (value: unknown, children: ReactNode): ReactNode => {
+  const nodes = elementFlatten(children);
+  const cases = nodes.filter((node) => isElementOf(node, SwitchCase));
+  const index = cases.findIndex((node) => Object.is(node.props.is, value));
 
-  for (const child of Children.toArray(children)) {
-    if (isElementOf<SwitchCaseProps>(child, Case)) {
-      if (child.props.when) return renderableRender(child.props.children);
+  if (index !== -1) return elementWithKey(cases[index].props.children ?? null, `case-${index}`);
 
-      continue;
-    }
+  const fallback = nodes.find((node) => isElementOf(node, SwitchDefault));
 
-    if (isElementOf<SwitchDefaultProps>(child, Default) && fallback === undefined) fallback = child.props.children;
-  }
-
-  return renderableRender(fallback);
+  return fallback ? elementWithKey(fallback.props.children ?? null, "default") : null;
 };
 
-export const Switch = Object.assign(SwitchRoot, { Case, Default });
+const SwitchRoot = ({ value, within, children }: SwitchProps) => {
+  const content = switchContent(value, children);
+
+  return within ? elementWithChildren(within, content) : content;
+};
+
+export const Switch = Object.assign(SwitchRoot, { case: SwitchCase, default: SwitchDefault });

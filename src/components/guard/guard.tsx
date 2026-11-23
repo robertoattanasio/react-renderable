@@ -1,10 +1,9 @@
-import { renderableRender } from "../../utils/renderable/renderable.js";
+import { elementWithChildren, elementWithKey } from "../../utils/element/element.js";
 
 import type { GuardProps } from "./type.js";
 
-export const Guard = ({ guardIf = false, thenRender = null, shouldHide = false, children }: GuardProps) => {
-  if (!guardIf) return renderableRender(children);
-  if (shouldHide || thenRender === null || thenRender === undefined) return null;
+export const Guard = ({ when, then = null, within, children = null }: GuardProps) => {
+  const content = when ? elementWithKey(then, "then") : elementWithKey(children, "children");
 
-  return renderableRender(thenRender);
+  return within ? elementWithChildren(within, content) : content;
 };

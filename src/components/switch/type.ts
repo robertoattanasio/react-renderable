@@ -1,15 +1,16 @@
-import type { ReactNode } from "react";
-import type { Renderable } from "../../utils/renderable/type.js";
+import type { ReactElement, ReactNode } from "react";
+
+export type SwitchProps = {
+  value: unknown;
+  within?: ReactElement;
+  children?: ReactNode;
+};
 
 export type SwitchCaseProps = {
-  when?: boolean;
-  children?: Renderable;
+  is: unknown;
+  children?: ReactNode;
 };
 
 export type SwitchDefaultProps = {
-  children?: Renderable;
-};
-
-export type SwitchProps = {
   children?: ReactNode;
 };

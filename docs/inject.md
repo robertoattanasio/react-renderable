@@ -1,26 +1,32 @@
-# Inject
+# r.inject
 
-Renders a list of renderables next to its children, after them or before.
+Renders something before its children, after them, or both.
 
 ```ts
-Inject(props: InjectProps): ReactNode
+r.inject(props: InjectProps): ReactNode
 ```
 
-| Prop         | Type           | Default |                              |
-| ------------ | -------------- | ------- | ---------------------------- |
-| `components` | `Renderable[]` | `[]`    | what to add                  |
-| `onTop`      | `boolean`      | `false` | add them before the children |
-| `children`   | `ReactNode`    |         |                              |
+| Prop       | Type        | Default |                              |
+| ---------- | ----------- | ------- | ---------------------------- |
+| `before`   | `ReactNode` | `null`  | rendered before the children |
+| `after`    | `ReactNode` | `null`  | rendered after the children  |
+| `children` | `ReactNode` |         |                              |
 
 ## Behavior
 
-- The injected renderables are siblings of `children`, never wrappers: they don't receive them.
-- They're keyed by their position in `components`.
+- What's injected sits next to `children`, never around them.
 
 ## Example
 
 ```tsx
-<Inject components={[Toaster, CookieBanner]}>
+<r.inject
+  after={
+    <>
+      <Toaster />
+      <CookieBanner />
+    </>
+  }
+>
   <App />
-</Inject>
+</r.inject>
 ```
